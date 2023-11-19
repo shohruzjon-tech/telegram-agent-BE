@@ -13,6 +13,10 @@ const bot = new TelegramBot(token, { polling: true });
 
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Unavailable");
+});
+
 // Endpoint to upload images
 app.post("/upload", upload.single("image"), (req, res) => {
   if (!req.file) {
